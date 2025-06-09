@@ -4,3 +4,4 @@
 .Ruserdata
 regist_key.R
 .DS_Store
+/data/*
