@@ -18,7 +18,12 @@ set_api_key("naver",
 ##------------------------------------------------------------------------------
 ## 01.03. set base date
 ##------------------------------------------------------------------------------
-base_date <- "2025-06-05" # 기준일자
+args <- commandArgs(trailingOnly = TRUE)
+
+# 첫 번째 파라미터 가져오기
+base_date <- args[1]
+
+# base_date <- "2025-06-08" # 기준일자
 base_dir <- stringr::str_remove_all(base_date, "-")
 
 if (!dir.exists(glue::glue("data/{base_dir}"))) {
@@ -28,7 +33,7 @@ if (!dir.exists(glue::glue("data/{base_dir}"))) {
 ##------------------------------------------------------------------------------
 ## 01.04. 메타정보 로드
 ##------------------------------------------------------------------------------
-meta_file <- "meta/news_keywords.xlsx"
+meta_file <- "meta/news_keywords2.xlsx"
 meta_keyword <- readxl::read_xlsx(meta_file, sheet = 2) 
 
 target_id <- meta_keyword |> 
